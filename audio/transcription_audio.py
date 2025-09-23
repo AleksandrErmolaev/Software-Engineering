@@ -1,4 +1,3 @@
-# asr_whisper.py
 import torch
 import soundfile as sf
 import librosa
@@ -14,7 +13,7 @@ def load_audio(path, target_sr=16000):
     audio, sr = sf.read(path)
     if sr != target_sr:
         audio = librosa.resample(audio, orig_sr=sr, target_sr=target_sr)
-    if len(audio.shape) > 1:  # стерео → моно
+    if len(audio.shape) > 1:
         audio = audio[:, 0]
     return audio, target_sr
 
