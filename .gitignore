@@ -1,4 +1,5 @@
 /video/.idea/
 /video/venv/
-/classification/.idea
-/classification/venv
+/photo/.idea
+/photo/venv
+.idea
