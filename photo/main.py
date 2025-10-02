@@ -11,7 +11,6 @@ import cv2
 
 class ImageClassifier:
     def __init__(self):
-        # Загружаем предобученную модель ResNet50
         self.model = ResNet50(weights='imagenet')
         print("Модель ResNet50 загружена успешно!")
 
@@ -36,17 +35,13 @@ class ImageClassifier:
 
     def predict_image(self, img):
         """Классификация изображения"""
-        # Преобразуем изображение в массив numpy
         img_array = image.img_to_array(img)
         img_array = np.expand_dims(img_array, axis=0)
 
-        # Предобработка для ResNet50
         img_array = preprocess_input(img_array)
 
-        # Прогнозирование
         predictions = self.model.predict(img_array)
 
-        # Декодируем предсказания
         decoded_predictions = decode_predictions(predictions, top=5)[0]
 
         return decoded_predictions
@@ -55,13 +50,11 @@ class ImageClassifier:
         """Отображение изображения и результатов классификации"""
         plt.figure(figsize=(12, 6))
 
-        # Отображаем изображение
         plt.subplot(1, 2, 1)
         plt.imshow(img)
         plt.axis('off')
         plt.title('Входное изображение')
 
-        # Отображаем предсказания
         plt.subplot(1, 2, 2)
         classes = [pred[1] for pred in predictions]
         probabilities = [pred[2] for pred in predictions]
@@ -72,7 +65,6 @@ class ImageClassifier:
         plt.title('Топ-5 предсказаний')
         plt.gca().invert_yaxis()
 
-        # Добавляем значения вероятностей на барчарт
         for i, (bar, prob) in enumerate(zip(bars, probabilities)):
             plt.text(prob + 0.01, bar.get_y() + bar.get_height() / 2,
                      f'{prob:.2%}', va='center')
@@ -82,13 +74,12 @@ class ImageClassifier:
 
 
 def main():
-    # Создаем классификатор
     classifier = ImageClassifier()
 
 
 
     print("\n=== Классификация изображения из файла ===")
-    file_path = "./photo1.jpg"  # Укажите путь к вашему изображению
+    file_path = "./photo1.jpg" 
     img = classifier.load_image_from_file(file_path)
 
     if img is not None:
