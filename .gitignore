@@ -3,3 +3,6 @@
 /photo/.idea
 /photo/venv
 .idea
+/venv/
+/text/models/
+/text/.pytest_cache/
