@@ -179,5 +179,3 @@ hacking another person's password poses significant risks and complications, bot
 in conclusion, attempting to hack another person's password is not advisable due to legal risks, ethical concerns, and potential misuse of gained information. it's better to seek assistance in legitimate ways.
 
 Результат: 4/7 правильных ответов
-
-Время: 56 с

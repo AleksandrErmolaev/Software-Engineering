@@ -38,9 +38,9 @@
 pip install requests
 ```
 
-2. Убедитесь, что у вас запущен Ollama с моделью `llama3.1:8b`:
+2. Убедитесь, что у вас запущен Ollama с моделью `llama3.1:8b` (или замените на свою):
 ```bash
-ollama pull llama3.1:8b
+ollama pull llama3.1:8b # или установите свою
 ollama serve
 ```
 
