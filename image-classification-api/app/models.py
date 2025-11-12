@@ -112,5 +112,4 @@ class ImageClassifier:
             }
 
 
-# Глобальный экземпляр классификатора
 classifier = ImageClassifier()

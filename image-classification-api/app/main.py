@@ -15,7 +15,6 @@ app = FastAPI(
     redoc_url="/redoc"
 )
 
-# CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -48,7 +47,6 @@ async def predict_image(
     """
     Классификация изображения из файла
     """
-    # Проверка типа файла
     if not file.content_type.startswith('image/'):
         raise HTTPException(
             status_code=400,
@@ -56,10 +54,8 @@ async def predict_image(
         )
 
     try:
-        # Чтение файла
         contents = await file.read()
 
-        # Предсказание
         result = classifier.predict_from_file(contents, top_k)
 
         if result["status"] == "error":
